@@ -1,4 +1,5 @@
 import { parseISO, format } from 'date-fns'
+import { fr } from 'date-fns/locale';
 
 type Props = {
   dateString: string
@@ -6,7 +7,7 @@ type Props = {
 
 const DateFormater = ({ dateString }: Props) => {
   const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
+  return <time dateTime={dateString}><pre>{format(date, 'dd MMMM yyyy  hh:mm', { locale: fr })}</pre></time>
 }
 
 export default DateFormater
